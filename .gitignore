@@ -1,0 +1,99 @@
+# ========================
+# Root / General
+# ========================
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.temp
+.env
+.env.*
+!.env.example
+!.env.sample
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.cache/
+coverage/
+dist/
+build/
+tmp/
+temp/
+
+# ========================
+# Frontend (React + Vite + TypeScript + Tailwind)
+# ========================
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/.vite/
+frontend/.turbo/
+frontend/coverage/
+frontend/*.local
+frontend/.env
+frontend/.env.*
+frontend/!.env.example
+
+# ========================
+# Backend (NestJS)
+# ========================
+backend/node_modules/
+backend/dist/
+backend/build/
+backend/coverage/
+backend/.nyc_output/
+backend/*.tsbuildinfo
+backend/.env
+backend/.env.*
+backend/!.env.example
+
+# ========================
+# Analytics (Python + FastAPI)
+# ========================
+analytics/venv/
+analytics/.venv/
+analytics/env/
+analytics/ENV/
+analytics/__pycache__/
+analytics/**/__pycache__/
+analytics/*.py[cod]
+analytics/*$py.class
+analytics/*.so
+analytics/.Python
+analytics/pip-log.txt
+analytics/pip-delete-this-directory.txt
+analytics/.pytest_cache/
+analytics/.mypy_cache/
+analytics/.ruff_cache/
+analytics/.coverage
+analytics/htmlcov/
+analytics/.tox/
+analytics/.nox/
+analytics/*.egg-info/
+analytics/dist/
+analytics/build/
+analytics/.ipynb_checkpoints/
+analytics/.env
+analytics/.env.*
+analytics/!.env.example
+
+# ========================
+# Optional / Future
+# ========================
+# Docker
+docker-compose.override.yml
+
+# Local data / downloads (Cricsheet etc.)
+data/
+downloads/
+*.csv
+*.json.gz
+!**/fixtures/**/*.json
+
+# OS & Editor leftovers
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
