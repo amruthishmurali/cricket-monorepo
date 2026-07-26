@@ -1,5 +1,22 @@
-# render.yaml
 services:
+  # ======================
+  # FastAPI Analytics
+  # ======================
+  - type: web
+    name: cricpulse-analytics
+    runtime: python
+    plan: free
+    rootDir: analytics
+    buildCommand: pip install -r requirements.txt
+    startCommand: python -m uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.0"
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+
   # ======================
   # NestJS Backend
   # ======================
@@ -13,8 +30,6 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
-      - key: PORT
-        value: 10000
       - key: SUPABASE_URL
         sync: false
       - key: SUPABASE_SERVICE_ROLE_KEY
@@ -24,19 +39,3 @@ services:
           name: cricpulse-analytics
           type: web
           property: host
-
-  # ======================
-  # FastAPI Analytics
-  # ======================
-  - type: web
-    name: cricpulse-analytics
-    runtime: python
-    plan: free
-    rootDir: analytics
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
-    envVars:
-      - key: SUPABASE_URL
-        sync: false
-      - key: SUPABASE_SERVICE_ROLE_KEY
-        sync: false
