@@ -66,6 +66,23 @@ cricket-monorepo/
 
 ---
 
+## 🌐 Live Demo
+
+The application is deployed and available here:
+
+**Frontend:** [https://cricket-monorepo.vercel.app](https://cricket-monorepo.vercel.app)
+
+| Service     | Platform | Status |
+|-------------|----------|--------|
+| Frontend    | Vercel   | Live   |
+| Backend     | Render   | Live   |
+| Analytics   | Render   | Live   |
+| Database    | Supabase | Live   |
+
+> **Note:** Render free services may take 30–60 seconds to wake up on the first request after inactivity.
+
+---
+
 ## ⚙️ Prerequisites
 
 - **Node.js** ≥ 20 (tested with v24.18.0)
