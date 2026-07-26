@@ -1,0 +1,42 @@
+# render.yaml
+services:
+  # ======================
+  # NestJS Backend
+  # ======================
+  - type: web
+    name: cricpulse-backend
+    runtime: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install && npm run build
+    startCommand: npm run start:prod
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: ANALYTICS_URL
+        fromService:
+          name: cricpulse-analytics
+          type: web
+          property: host
+
+  # ======================
+  # FastAPI Analytics
+  # ======================
+  - type: web
+    name: cricpulse-analytics
+    runtime: python
+    plan: free
+    rootDir: analytics
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
